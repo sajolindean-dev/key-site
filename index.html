@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Key Generator</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      position: relative;
+    }
+    img {
+      width: 350px;
+    }
+    .key {
+      position: absolute;
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #00ff66;
+      background: rgba(0,0,0,0.7);
+      padding: 10px 15px;
+      font-size: 20px;
+      font-family: monospace;
+      border-radius: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #00ff66;
+      border: none;
+      font-weight: bold;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <img src="bg.jpg">
+  <div class="key" id="keyText">LOADING...</div>
+  <button onclick="generate()">COPY KEY</button>
+</div>
+
+<script>
+function generate(){
+  let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let key = "King_Cheats_U_";
+  for(let i=0;i<6;i++){
+    key += chars[Math.floor(Math.random()*chars.length)];
+  }
+  document.getElementById("keyText").innerText = key;
+  navigator.clipboard.writeText(key);
+  alert("Key Copied");
+}
+generate();
+</script>
+
+</body>
+</html>
